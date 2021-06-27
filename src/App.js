@@ -26,7 +26,7 @@ class App extends Component {
       <div style={{ width: '100vw', height: '100vh', backgroundColor: '#41b0fe' }}>
         <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
           <Card
-            style={{ width: '80%' }}
+            style={{ width: '70%' }}
             title="Search What You Want"
             tabList={tabList}
             activeTabKey={this.state.key}

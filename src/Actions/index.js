@@ -13,7 +13,7 @@ export const getCityOptions = (io_data) => {
             if (!!io_data.searchValue && io_data.searchValue.length >= 3) {
                 resData.forEach(element => {
                     if (element.startsWith(io_data.searchValue)) {
-                        cityList.push(element)
+                        cityList.push({ value: element })
                     }
                 });
             }
@@ -42,10 +42,10 @@ export const getBookOptions = (io_data) => {
             if (!!io_data.searchValue && io_data.searchValue.length >= 3) {
                 resData.forEach(element => {
                     if (element.title.toUpperCase().startsWith(io_data.searchValue.toUpperCase())) {
-                        bookList[0].options.push({value: element.title})
+                        bookList[0].options.push({ value: element.title })
                     }
                     if (element.author.toUpperCase().startsWith(io_data.searchValue.toUpperCase())) {
-                        bookList[1].options.push({value: element.author})
+                        bookList[1].options.push({ value: element.author })
                     }
                 });
             }

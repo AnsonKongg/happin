@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as action from '../Actions/index';
 import * as actionTypes from '../config/actionTypes';
-const { Option } = AutoComplete;
 
 class CitySearch extends Component {
     constructor(props) {
@@ -36,9 +35,9 @@ class CitySearch extends Component {
     _renderOptions = () => {
         if (!!this.state.searchValue && this.state.searchValue.length >= 3) {
             if (!!this.props.cityList && this.props.cityList.length > 0) {
-                return this.props.cityList.map(city => <Option key={city}>{city}</Option>)
+                return this.props.cityList
             } else {
-                return <Option key="empty"><Empty /></Option>
+                return [{ value: <Empty /> }]
             }
         }
     };
@@ -47,13 +46,12 @@ class CitySearch extends Component {
         return (
             <>
                 <AutoComplete
+                    options={this._renderOptions()}
                     style={{ width: "100%" }}
                     onSelect={this._handleSelect}
                     onSearch={this._handleSearch}
                     placeholder="Searching cities"
-                >
-                    {this._renderOptions()}
-                </AutoComplete>
+                />
             </>
         );
     }
